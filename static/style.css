@@ -47,6 +47,9 @@ nav {
 /* 記事本文（詳細ページ用） */
 .post-content {
     margin-top: 20px;
+    /* 本文内のテキストが横に広がりすぎないよう担保 */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* いいねセクション */
@@ -81,10 +84,11 @@ button:hover {
     color: black;
 }
 
+/* 画像の設定：横広がりを防ぎつつ中央寄せ */
 section img {
-    width: 60%;      /* 画面横幅の60%の大きさに縮小 */
-    max-width: 400px; /* ただし、最大でも400px以上に大きくならないように制限 */
+    max-width: 100%;    /* 親要素（800px）を絶対にはみ出さない */
+    width: auto;        /* 画像本来のサイズを尊重しつつ */
     height: auto;
     display: block;
-    margin: 20px auto;
+    margin: 20px auto;  /* 上下余白、左右中央寄せ */
 }
