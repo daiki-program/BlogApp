@@ -1,0 +1,90 @@
+/* ベース設定：白背景に黒文字 */
+body {
+    font-family: sans-serif;
+    line-height: 1.6;
+    max-width: 800px; /* 読みやすさのため幅だけは制限 */
+    margin: 40px auto;
+    padding: 0 20px;
+    color: black;
+    background-color: white;
+}
+
+/* リンク全般：昔ながらの青色＋下線 */
+a {
+    color: blue;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: black; /* ホバー時は黒に変えるだけ */
+}
+
+/* ヘッダー・ナビゲーション */
+nav {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black; /* シンプルな黒い線 */
+}
+
+/* 記事一覧（ホーム用）：ただの箇条書きリスト */
+.post-list {
+    list-style-type: square; /* 四角い黒ポチ */
+    padding-left: 20px;
+}
+
+.post-item {
+    margin-bottom: 15px;
+}
+
+.post-item a {
+    font-size: 1.2rem;
+}
+
+.post-title {
+    font-weight: bold;
+}
+
+/* 記事本文（詳細ページ用） */
+.post-content {
+    margin-top: 20px;
+}
+
+/* いいねセクション */
+.like-section {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px dashed black; /* 昔ながらの点線区切り */
+    text-align: left; /* 中央揃えもやめて左寄せに */
+}
+
+/* ボタン：白黒のシンプルな四角形 */
+button {
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+    padding: 5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* ボタンのホバー時：白黒反転 */
+button:hover {
+    background-color: black;
+    color: white;
+}
+
+#count {
+    margin-left: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: black;
+}
+
+section img {
+    width: 60%;      /* 画面横幅の60%の大きさに縮小 */
+    max-width: 400px; /* ただし、最大でも400px以上に大きくならないように制限 */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+}

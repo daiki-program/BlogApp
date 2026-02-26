@@ -1,0 +1,98 @@
+<body>
+    <header>
+        <nav><a href="../index.html">← ホームに戻る</a></nav>
+    </header>
+
+    <main>
+        <article class="post-content">
+            <header class="post-header">
+                <h1>FastAPIで開発したWebアプリを、さくらVPS上に本番用サーバーとして構築し、独自ドメインとSSLで完全公開した</h1>
+                <time datetime="2026-02-25">2026年2月25日</time>
+            </header>
+
+            <section class="intro">
+                <p>表題の通りですが、2日かけて「さくらVPS」で本ブログシステムを構築しました。</p>
+                <p>動機は、アプリケーションを簡単にデプロイできるRenderでのWebアプリ公開は先日行いましたが、もっと「インターネットっぽいことをしたい」と思ったからです。</p>
+            </section>
+
+            <section class="details">
+                <h2>なぜ「さくらVPS」なのか</h2>
+                <p>初のデプロイではRenderという海外のサービスを使ったので、次は日本のものを使いたかったのと、費用を月額1000円以内に抑えたかったからです。途中で気が付いたことなのですが、Renderだと一つのサービスに一つのサーバーが必要でしたが、VPSは自分の設定次第で複数のサービスを登録できるので結果的に格安なのだと理解できました。</p>
+
+                <h2>技術スタック</h2>
+                <ul>
+                    <li><strong>Backend:</strong> FastAPI (Python)</li>
+                    <li><strong>Database:</strong> PostgreSQL</li>
+                    <li><strong>Infrastructure:</strong> さくらVPS / Nginx / systemd</li>
+                </ul>
+            </section>
+
+            <section　class="step">
+                <h2>デプロイまでの手順</h2>
+                    <ol>
+                        <li>FastAPIを用いたローカル環境でのアプリケーション開発。</li>
+                        <li>さくらVPSの契約とOS（Ubuntu）のセットアップ。SSH接続やファイアウォールのセキュリティ設定。</li>
+                        <li>PostgreSQLのインストールと、アプリ専用のデータベース・ユーザー作成。</li>
+                        <li>GitHubリポジトリを作成し、サーバー（VPS）と連携してコードを反映。</li>
+                        <li>NginxとCertbotを用いた独自ドメイン（お名前.com）の設定およびSSL（HTTPS）化。</li>
+                        <li>systemdによるプロセスの永続化。サーバー再起動時の自動起動を有効化。</li>
+                    </ol>
+            </section>
+                
+            <section>
+                <h2>さくらVPSのパケットフィルター設定が便利だった</h2>
+                <p>さくらVPSを確かに利用している様子です。</p>
+                <figure>
+                <img src="../images/firewall.png" alt="パケットフィルターの設定画面">
+                <figcaption>図1：さくらVPSのパケットフィルター設定画面（ポート22, 80, 443を開放）</figcaption>
+            </section>
+
+            <section>
+                <h2>気をつけたこと</h2>
+                <ul>
+                    <li>GitHubに.envファイルをプッシュしてしまった際、
+                    </li>
+                        <ul>
+                            <li>旧リポジトリを削除し、機密情報が履歴に残らないようにしました。</li>
+                            <li>DBのパスワードなども念のため新しいものに変更しました。</li>
+                        </ul>
+                    <li>物理メモリの枯渇に備え、ストレージ上に2GBのスワップファイルを作成し、仮想メモリとして割り当てました。</li>
+                    <li>AIに作業手順を尋ねるとき、IPアドレスやパスワードなどは隠し、必要最低限の情報で実行しました。</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>はじめてサーバーを立てた感想。</h2>
+                <p>最も思ったのは、「先人たちはどうやってこのような複雑なデプロイ作業をやってのけたのだ」ということです。今回私はGeminiに手順を確認しながらセットアップを進めましたが、それでも体力を使う者でした。インターネット上に存在する無数のWEBサービスがの尊さを感じました。</p>
+                <p>もう一つは、自分もインターネットを作る側（支える側）に来れた感動です。小学5年生のときに祖母の家で初めてインターネットを使いましたが、10数年越しにその画面の向かい側にいるような、不思議な感じです。YouTubeやXといったプラットフォームを使わずにそこに立てたことは、自分に大きな意味があります。</p>
+                <p>最後は、どこからが「自分でサーバーを立てた」と言えるのかという疑問です。今回、サーバーをとして使うOSは所有していません。しかし、自分でサーバーを所有したとしても、そのパーツは入手したもので、自分で作ったわけではありません。言語だって、誰かが開発したものを使っています。以上を考えると、SEとして生きていくには、物事を突き詰める能力と、良いところで納得する二つの能力が必要なのかもしれません。</p>
+            </section>
+
+            <section>
+                <h2>まとめ</h2>
+                <p>今回、サーバー構築に取り組み、知識が繋がりました。次はもっと動きのあるWEBアプリを作成し、サーバーの負荷を確認してみたいです。</p>
+                <p>最後まで読んでくださり、ありがとうございました。</p>
+            </section>
+
+            <hr>
+
+            <section class="like-section">
+                <p>この記事が役に立ったら、ぜひ「応援」をお願いします！</p>
+                <div class="like-controls">
+                    <button id="like-button" onclick="doLike()">👍 応援する</button>
+                    <span class="count-wrapper">現在 <span id="count">0</span> 回応援されました</span>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 My Blog</p>
+    </footer>
+
+    <script>
+        // 記事ごとにここだけユニークなIDに変える
+        const POST_ID = "2026-02-25-db-setup.html"; 
+    </script>
+    <script src="../js/like.js"></script>
+</body>
