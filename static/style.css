@@ -1,8 +1,8 @@
 /* ベース設定：白背景に黒文字 */
 body {
     font-family: sans-serif;
-    line-height: 1.6;
-    max-width: 800px; /* 読みやすさのため幅だけは制限 */
+    line-height: 1.8;
+    max-width: 680px;
     margin: 40px auto;
     padding: 0 20px;
     color: black;
@@ -48,8 +48,8 @@ nav {
 .post-content {
     margin-top: 20px;
     /* 本文内のテキストが横に広がりすぎないよう担保 */
-    word-wrap: break-word;
     overflow-wrap: break-word;
+    font-size: 1.05rem;    /* わずかに文字を大きくして余白とのバランスを取る */
 }
 
 /* いいねセクション */
@@ -57,7 +57,6 @@ nav {
     margin-top: 50px;
     padding-top: 20px;
     border-top: 1px dashed black; /* 昔ながらの点線区切り */
-    text-align: left; /* 中央揃えもやめて左寄せに */
 }
 
 /* ボタン：白黒のシンプルな四角形 */
@@ -81,14 +80,11 @@ button:hover {
     margin-left: 10px;
     font-size: 1.2rem;
     font-weight: bold;
-    color: black;
 }
 
 /* 画像の設定：横広がりを防ぎつつ中央寄せ */
 section img {
-    max-width: 100%;    /* 親要素（800px）を絶対にはみ出さない */
-    width: auto;        /* 画像本来のサイズを尊重しつつ */
-    height: auto;
+    max-width: 100%;    /* 親要素（680px）を絶対にはみ出さない */
     display: block;
-    margin: 20px auto;  /* 上下余白、左右中央寄せ */
+    margin: 30px auto;  /* 画像の上下余白を少し広げて、圧迫感を消す */
 }
