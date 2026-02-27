@@ -9,7 +9,7 @@ FastAPI (Python) で構築した個人ブログシステムです。
 
 
 ## 🛠 技術スタック
-- **言語**: Python Python 3.12.10
+- **言語**: Python 3.12.10
 - **フレームワーク**: FastAPI
 - **データベース**: PostgreSQL (本番) / SQLite (開発)
 - **サーバー**: さくらVPS (Ubuntu)
@@ -33,6 +33,8 @@ FastAPI (Python) で構築した個人ブログシステムです。
 ### 1. リポジトリをクローン
 ```bash
 git clone [https://github.com/daiki-program/BlogApp.git](https://github.com/daiki-program/BlogApp.git)
+```
+```bash
 cd BlogApp
 ```
 
