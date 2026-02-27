@@ -25,7 +25,9 @@ FastAPI (Python) で構築した個人ブログシステムです。
 │   ├── images/
 │   └── js/
 ├── templates/
-├── posts/               # 各記事のHTMLファイル
+├── posts/
+├── requirements.txt
+├── .env
 └── .gitignore
 ```
 ## 🚀 ローカルでの起動方法
@@ -38,12 +40,31 @@ git clone [https://github.com/daiki-program/BlogApp.git](https://github.com/daik
 cd BlogApp
 ```
 
-### 2. 依存ライブラリのインストール
+### 2. 仮想環境の作成
+```bash
+python -m venv venv
+```
+
+Windowsの場合
+```bash
+.\venv\Scripts\activate
+```
+
+Mac/Linuxの場合
+```bash
+source venv/bin/activate
+```
+
+### 3. 依存ライブラリのインストール
 ```bash
 pip install -r requirements.txt
 ```
+### 4. プロジェクトのルートフォルダに .env ファイルを作成
+```Plaintext
+DATABASE_URL=sqlite:///./local_test.db
+```
 
-### 3. アプリケーションの起動
+### 5. アプリケーションの起動
 ```bash
 python main.py
 ```
@@ -51,7 +72,7 @@ python main.py
 http://127.0.0.1:8000 にアクセスして確認できます。
 
 ## 🌐 デプロイについて
-本プロジェクトは GitHub Actions 等は使用せず、VPS側で git fetch および git reset --hard を行うことで最新コードを反映させています。
+本プロジェクトは、GitHub を介した手動デプロイを採用しています。VPS側で git pull を行い、systemd を用いてサービスを管理しています。
 ---
 
 Developed by D. S.
