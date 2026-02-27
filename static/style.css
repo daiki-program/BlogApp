@@ -1,90 +1,73 @@
-/* ベース設定：白背景に黒文字 */
+/* ベース設定 */
 body {
     font-family: sans-serif;
     line-height: 1.8;
-    max-width: 680px;
-    margin: 40px auto;
-    padding: 0 20px;
     color: black;
     background-color: white;
+    margin: 0;
+    padding: 0;
 }
 
-/* リンク全般：昔ながらの青色＋下線 */
+/* 主要な要素をすべて中央に寄せる */
+header, 
+main, 
+footer, 
+.post-list {
+    max-width: 720px;    /* 読みやすい幅に制限 */
+    margin: 0 auto;      /* 左右の余白を自動（中央寄せ） */
+    padding: 20px;       /* スマホで見た時の端の余白 */
+    width: 100%;         /* 幅を最大値まで広げる */
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+}
+
+/* 記事本文のデザイン */
+.post-content {
+    margin-top: 30px;
+    font-size: 1.1rem;
+}
+
+/* 見出しの調整 */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+/* リンクのデザイン */
 a {
     color: blue;
     text-decoration: underline;
 }
 
 a:hover {
-    color: black; /* ホバー時は黒に変えるだけ */
+    color: black;
 }
 
-/* ヘッダー・ナビゲーション */
-nav {
-    margin-bottom: 20px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid black; /* シンプルな黒い線 */
-}
-
-/* 記事一覧（ホーム用）：ただの箇条書きリスト */
-.post-list {
-    list-style-type: square; /* 四角い黒ポチ */
-    padding-left: 20px;
-}
-
-.post-item {
-    margin-bottom: 15px;
-}
-
-.post-item a {
-    font-size: 1.2rem;
-}
-
-.post-title {
-    font-weight: bold;
-}
-
-/* 記事本文（詳細ページ用） */
-.post-content {
-    margin-top: 20px;
-    /* 本文内のテキストが横に広がりすぎないよう担保 */
-    overflow-wrap: break-word;
-    font-size: 1.05rem;    /* わずかに文字を大きくして余白とのバランスを取る */
+/* 画像の設定（はみ出し防止＋中央寄せ） */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 40px auto;
 }
 
 /* いいねセクション */
 .like-section {
     margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px dashed black; /* 昔ながらの点線区切り */
+    padding: 20px 0;
+    border-top: 1px dashed black;
 }
 
-/* ボタン：白黒のシンプルな四角形 */
+/* ボタンのデザイン */
 button {
     background-color: white;
     color: black;
     border: 2px solid black;
-    padding: 5px 15px;
-    font-size: 1rem;
+    padding: 8px 20px;
     font-weight: bold;
     cursor: pointer;
 }
 
-/* ボタンのホバー時：白黒反転 */
 button:hover {
     background-color: black;
     color: white;
-}
-
-#count {
-    margin-left: 10px;
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-/* 画像の設定：横広がりを防ぎつつ中央寄せ */
-section img {
-    max-width: 100%;    /* 親要素（680px）を絶対にはみ出さない */
-    display: block;
-    margin: 30px auto;  /* 画像の上下余白を少し広げて、圧迫感を消す */
 }
